@@ -5,6 +5,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.mongodb.webhook.model.Alert;
@@ -18,7 +19,8 @@ public class ApplicationController {
     AlertRepository repository;
 
     @PostMapping("/alert")
-    public void alertWebhook(@RequestBody Alert alert) {
+    public void alertWebhook(@RequestParam(name = "secret") String secret, @RequestBody Alert alert) {
+        logger.info("Secret:"+secret);
         logger.info(alert.toString());
         repository.save(alert);
     }
