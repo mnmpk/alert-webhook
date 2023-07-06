@@ -19,8 +19,7 @@ public class ApplicationController {
     AlertRepository repository;
 
     @PostMapping("/alert")
-    public void alertWebhook(@RequestParam(name = "secret") String secret, @RequestBody Alert alert) {
-        logger.info("Secret:"+secret);
+    public void alertWebhook(@RequestBody Alert alert) {
         logger.info(alert.toString());
         repository.save(alert);
     }
