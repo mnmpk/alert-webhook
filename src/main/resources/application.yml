@@ -1,0 +1,9 @@
+spring:
+  data:
+    mongodb:
+      uri: "mongodb+srv://alert:alert@demo.uskpz.mongodb.net/alert"
+      host: localhost
+      port: 27017
+      database: alert
+      username: alert
+      password: alert
