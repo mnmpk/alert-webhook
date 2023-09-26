@@ -2,6 +2,7 @@ package com.mongodb.webhook.filter;
 
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.security.InvalidKeyException;
 import java.security.NoSuchAlgorithmException;
 import java.util.Base64;
@@ -38,7 +39,7 @@ public class WebhookSecretFilter implements Filter {
 
         String key = "test";
         StringBuilder sb = new StringBuilder();
-        BufferedReader reader = req.getReader();
+        BufferedReader reader = new BufferedReader(new InputStreamReader(req.getInputStream()));
         String line;
         while ((line = reader.readLine()) != null) {
             sb.append(line);
