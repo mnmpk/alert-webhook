@@ -31,12 +31,15 @@ public class ApplicationController {
     AlertRepository repository;
 
     @PostMapping("/alert")
-    public void alertWebhook(@RequestHeader("X-MMS-Signature") String signature, @RequestBody String body) throws InvalidKeyException, NoSuchAlgorithmException, JsonMappingException, JsonProcessingException {
+    public void alertWebhook(@RequestHeader("X-MMS-Signature") String signature, @RequestBody String body) throws Exception {
         try {
             String result = hmacWithJava(body, KEY);
             logger.info(body);
             logger.info(signature);
             logger.info(result);
+            if(!signature.equals(result)){
+                throw new Exception("Invalid Signature");
+            }
         } catch (InvalidKeyException e) {
             // TODO Auto-generated catch block
             e.printStackTrace();
