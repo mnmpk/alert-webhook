@@ -23,4 +23,5 @@ public class Alert {
     Date updated;
     String status;
     Value currentValue;
+    Date lastNotified;
 }
