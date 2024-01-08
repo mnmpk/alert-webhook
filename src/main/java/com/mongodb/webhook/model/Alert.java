@@ -11,13 +11,16 @@ public class Alert {
     String metricName;
     Date created;
     String groupId;
+    String hostId;
     String hostnameAndPort;
     String clusterId;
     String humanReadable;
     String alertConfigId;
     String clusterName;
     String eventTypeName;
+    String typeName;
     Link[] links;
     Date updated;
     String status;
+    Value currentValue;
 }
