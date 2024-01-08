@@ -8,6 +8,7 @@ import lombok.Data;
 public class Alert {
     String id;
     String replicaSetName;
+    String metricName;
     Date created;
     String groupId;
     String hostnameAndPort;
